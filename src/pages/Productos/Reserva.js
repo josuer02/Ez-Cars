@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 
 export default function Reserva() {
-
-
   const [name, setCarName] = useState("");
   const [price, setPrice] = useState("");
   const [year, setYear] = useState("");
@@ -18,12 +15,12 @@ export default function Reserva() {
   const [clientTel, setClientTel] = useState("");
 
   useEffect(() => {
-    setId(localStorage.getItem('id'));
-    setCarName(localStorage.getItem('name'));
-    setPrice(localStorage.getItem('price'));
-    setYear(localStorage.getItem('year'));
-    setDescription(localStorage.getItem('description'));
-  }, [])
+    setId(localStorage.getItem("ID"));
+    setCarName(localStorage.getItem("name"));
+    setPrice(localStorage.getItem("price"));
+    setYear(localStorage.getItem("year"));
+    setDescription(localStorage.getItem("description"));
+  }, []);
 
   const sendDataToAPI = () => {
     axios
@@ -34,25 +31,32 @@ export default function Reserva() {
         year,
         description,
         clientName,
-        clientTel
+        clientTel,
       })
       .then((response) => {
         console.log(response.data);
-
       });
   };
-  
 
+  const handleClick = () => {
+    sendDataToAPI();
+    onDelete(id);
+  };
 
-
-
+  const onDelete = (id) => {
+    axios
+      .delete(`https://635767892712d01e140742e9.mockapi.io/api/v1/carros/${id}`)
+      .then((res) => {
+        console.log(res.data);
+      });
+  };
 
   return (
     <div>
       <Box
         component="form"
         sx={{
-          '& .MuiTextField-root': { m: 1, width: '25ch' },
+          "& .MuiTextField-root": { m: 1, width: "25ch" },
         }}
         noValidate
         autoComplete="off"
@@ -62,7 +66,6 @@ export default function Reserva() {
             required
             id="outlined-required"
             label="Ingrese su Nombre"
-
             onChange={(e) => setClientName(e.target.value)}
           />
           <TextField
@@ -70,15 +73,22 @@ export default function Reserva() {
             id="outlined-required"
             label="Ingrese su telefono"
             type="number"
-            
             onChange={(e) => setClientTel(e.target.value)}
           />
+
           <TextField
             disabled
             label="Name"
             id="outlined-disabled"
             value={name}
             onChange={(e) => setCarName(e.target.value)}
+          />
+          <TextField
+            disabled
+            label="ID"
+            id="outlined-disabled"
+            value={id}
+            onChange={(e) => setId(e.target.value)}
           />
           <TextField
             disabled
@@ -100,11 +110,15 @@ export default function Reserva() {
             id="outlined-disabled"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-          />
+          >
+            {" "}
+          </TextField>
           <div>
-            <Button variant="contained" onClick={sendDataToAPI} size="large">
-              Submit
-            </Button>
+            <Link to="/success">
+              <Button variant="contained" onClick={handleClick} size="large">
+                Submit
+              </Button>
+            </Link>
           </div>
         </div>
       </Box>

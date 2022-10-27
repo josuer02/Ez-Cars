@@ -10,9 +10,10 @@ import Vender from "./pages/Vender/Vender";
 import Comprar from "./pages/Productos/Comprar";
 import Gracias from "./pages/Gracias";
 import Reserva from "./pages/Productos/Reserva";
+import Success from "./pages/Productos/Success";
 
 function App() {
-      return (
+  return (
     <div>
       <MainHeader />
       <main>
@@ -22,9 +23,8 @@ function App() {
         <Route path="/home">
           <Home />
         </Route>
-        <Route path="/productos">  
-           
-          <Productos/>
+        <Route path="/productos">
+          <Productos />
         </Route>
         <Route path="/contactenos">
           <Contactenos />
@@ -39,14 +39,20 @@ function App() {
           <Vender />
         </Route>
         <Route path="/compras">
-            <Comprar/>
-            </Route> 
-            <Route path="/gracias">
-            <Gracias/>
-            </Route> 
-            <Route path="/reserva">
-            <Reserva/>
-            </Route>  
+          <Comprar />
+        </Route>
+        <Route path="/gracias">
+          <Gracias />
+        </Route>
+        <Route path="/reserva">
+          <Reserva />
+        </Route>
+        <Route path="/success">
+          <Success />
+        </Route>
+        <Route path="/reservas">
+          <Success />
+        </Route>
       </main>
     </div>
   );

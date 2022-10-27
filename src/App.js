@@ -11,7 +11,7 @@ import Comprar from "./pages/Productos/Comprar";
 import Gracias from "./pages/Gracias";
 import Reserva from "./pages/Productos/Reserva";
 import Success from "./pages/Productos/Success";
-
+import RevisarCitas from "./pages/Citas/RevisarCitas";
 function App() {
   return (
     <div>
@@ -53,6 +53,9 @@ function App() {
         <Route path="/reservas">
           <Success />
         </Route>
+        <Route path="/revisarcitas">
+            <RevisarCitas />
+            </Route>
       </main>
     </div>
   );

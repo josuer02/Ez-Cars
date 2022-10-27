@@ -1,21 +1,52 @@
 import React from 'react'
 import { Button, Checkbox, Form } from 'semantic-ui-react'
-
-const Citas = () => (
+import axios from "axios";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+function Citas() {
+  const [name, setName] = useState("");
+  const [telefono, setTel] = useState("");
+  const [fecha, setDate] = useState("");
+  
+  const sendDataToAPI = () => {
+    axios
+      .post(`https://635767892712d01e140742e9.mockapi.io/api/v1/citas`, {
+        name,
+        telefono,
+        fecha,
+      })
+      .then((response) => {
+        console.log(response.data);
+		
+          });
+  };
+  return (
   <Form>
     <Form.Field>
-      <label>First Name</label>
-      <input placeholder='First Name' />
+      <label>Nombre</label>
+      <input placeholder='Nombre' onChange={(e) => setName(e.target.value)}/>
+      
+
     </Form.Field>
     <Form.Field>
-      <label>Last Name</label>
-      <input placeholder='Last Name' />
+      <label>Telefono</label>
+      <input placeholder='Número de teléfono' onChange={(e) => setTel(e.target.value)}/>
+      
     </Form.Field>
     <Form.Field>
-      <Checkbox label='I agree to the Terms and Conditions' />
+      <label>Fecha</label>
+      <input placeholder='Fecha de cita' onChange={(e) => setDate(e.target.value)}/>
+      
+
     </Form.Field>
-    <Button type='submit'>Submit</Button>
+    <Form.Field>
+      <Checkbox label='Acepto los terminos y condiciones' />
+    </Form.Field>
+    <Button type='submit' onClick={sendDataToAPI}>Submit</Button>
+    <Link to="/revisarcitas">
+       <Button variant="contained">Revisar mis citas</Button>
+    </Link>
   </Form>
 )
-
+}
 export default Citas

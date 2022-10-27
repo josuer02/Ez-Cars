@@ -1,5 +1,11 @@
+
+
 const Contactenos = () => {
-    return <h1>Contactenos page</h1>;
-  };
-  
-  export default Contactenos;
+  return (
+    <h1>
+      Contactanos
+    </h1>
+  );
+};
+
+export default Contactenos;

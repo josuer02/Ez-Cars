@@ -11,7 +11,7 @@ import { Loader } from "semantic-ui-react";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 
-export default function Productos() {
+export default function Comprar() {
   const [apiData, setApiData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
@@ -23,6 +23,21 @@ export default function Productos() {
       });
   }, []);
 
+  const getData = () => {
+    axios
+      .get(`https://635767892712d01e140742e9.mockapi.io/api/v1/carros`)
+      .then((getData) => {
+        setApiData(getData.data);
+      });
+  };
+
+  const onDelete = (id) => {
+    axios
+      .delete(`https://635767892712d01e140742e9.mockapi.io/api/v1/carros/${id}`)
+      .then(() => {
+        getData();
+      });
+  };
   return (
     <div className="centered">
       <TableContainer component={Paper}>
@@ -37,7 +52,6 @@ export default function Productos() {
               <TableCell align="right">PRICE</TableCell>
               <TableCell align="center">DESCRIPTION</TableCell>
               <TableCell align="center">COMPRAR</TableCell>
-              <TableCell align="center">RESERVAR</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -56,13 +70,15 @@ export default function Productos() {
                   <TableCell align="center">{data.description}</TableCell>
                 )}
                 <TableCell align="center">
-                  <Link to="/compras">
-                    <Button variant="contained">Comprar</Button>
-                  </Link>
-                </TableCell>
-                <TableCell align="center">
-                  <Link to="/reserva">
-                    <Button variant="contained">Reserva</Button>
+                  <Link to="/gracias">
+                    <Button
+                      variant="contained"
+                      onClick={() => {
+                        onDelete(data.id);
+                      }}
+                    >
+                      Comprar Finalmente
+                    </Button>
                   </Link>
                 </TableCell>
               </TableRow>

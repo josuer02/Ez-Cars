@@ -10,6 +10,7 @@ import Vender from "./pages/Vender/Vender";
 import Comprar from "./pages/Productos/Comprar";
 import Gracias from "./pages/Gracias";
 import Reserva from "./pages/Productos/Reserva";
+import Reservas from "./pages/Productos/Reservas";
 import Success from "./pages/Productos/Success";
 import RevisarCitas from "./pages/Citas/RevisarCitas";
 function App() {
@@ -51,7 +52,7 @@ function App() {
           <Success />
         </Route>
         <Route path="/reservas">
-          <Success />
+          <Reservas />
         </Route>
         <Route path="/revisarcitas">
             <RevisarCitas />

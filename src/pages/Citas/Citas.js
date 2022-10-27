@@ -1,8 +1,10 @@
-import React from 'react'
-import { Button, Checkbox, Form } from 'semantic-ui-react'
+import React from "react";
 import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 function Citas() {
   const [name, setName] = useState("");
   const [telefono, setTel] = useState("");
@@ -21,32 +23,50 @@ function Citas() {
           });
   };
   return (
-  <Form>
-    <Form.Field>
-      <label>Nombre</label>
-      <input placeholder='Nombre' onChange={(e) => setName(e.target.value)}/>
-      
+<h1>
+      {" "}
+      AGENDA TU CITA
+      <Box
+        component="form"
+        sx={{
+          "& .MuiTextField-root": { m: 1, width: "25ch" },
+        }}
+        noValidate
+        autoComplete="off"
+      >
+        <div>
+          <TextField
+            id="outlined-name"
+            label="Nombre"
+            onChange={(e) => setName(e.target.value)}
+          />
+          <TextField
+            id="outlined-year"
+            label="Telefono"
+            onChange={(e) => setTel(e.target.value)}
+          />
+          <TextField
+            id="outlined-price"
+            type="date"
+            onChange={(e) => setDate(e.target.value)}
+          />
 
-    </Form.Field>
-    <Form.Field>
-      <label>Telefono</label>
-      <input placeholder='Número de teléfono' onChange={(e) => setTel(e.target.value)}/>
-      
-    </Form.Field>
-    <Form.Field>
-      <label>Fecha</label>
-      <input placeholder='Fecha de cita' onChange={(e) => setDate(e.target.value)}/>
-      
-
-    </Form.Field>
-    <Form.Field>
-      <Checkbox label='Acepto los terminos y condiciones' />
-    </Form.Field>
-    <Button type='submit' onClick={sendDataToAPI}>Submit</Button>
-    <Link to="/revisarcitas">
-       <Button variant="contained">Revisar mis citas</Button>
-    </Link>
-  </Form>
+          <div>
+            <Link to="/productos">
+              <Button variant="contained" onClick={sendDataToAPI} size="large">
+                Submit
+              </Button>
+            </Link>
+            <p></p>
+            <Link to="/revisarcitas">
+              <Button variant="contained" size="large">
+                Revisar mis citas
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </Box>
+    </h1>
 )
 }
 export default Citas

@@ -3,6 +3,7 @@ import TextField from '@mui/material/TextField';
 import axios from "axios";
 import Button from "@mui/material/Button";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 function RevisarCitas() {
     const [apiData, setApi] = useState({});
     const [telefono, setTel] = useState();
@@ -10,6 +11,9 @@ function RevisarCitas() {
   
     const handleClick = () => {
       setIdButton(telefono);
+    };
+    const handleClick2 = () => {
+        onDelete(telefono);
     };
     useEffect(() => {
       axios
@@ -21,6 +25,14 @@ function RevisarCitas() {
           setApi(getData.data);
         });
     }, [idButton]);
+
+    const onDelete = (telefono) => {
+        axios
+          .delete(`https://635767892712d01e140742e9.mockapi.io/api/v1/citas/${telefono}`)
+          .then((res) => {
+            console.log(res.data);
+          });
+      };
     
   return (
     <Box
@@ -31,7 +43,9 @@ function RevisarCitas() {
       <TextField fullWidth label="ID de cita" id="fullWidth" value={telefono} onChange={(e) => setTel(e.target.value)} />
       <div>
       <Button variant="contained" size = 'large' onClick={handleClick}>Revisar cita</Button>
-      <Button variant="contained" size = 'large'>Eliminar cita</Button>
+      <Link to='/home'>
+      <Button variant="contained" size = 'large' onClick={handleClick2}>Eliminar cita</Button>
+      </Link>
       </div>
       <div>{apiData.name}</div>
       <div>{apiData.fecha}</div>

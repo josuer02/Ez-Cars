@@ -23,6 +23,14 @@ export default function Productos() {
       });
   }, []);
 
+  const setData = (id, name, year, price, description) => {
+    localStorage.setItem('ID', id)
+    localStorage.setItem('name', name)
+    localStorage.setItem('year', year)
+    localStorage.setItem('price', price)
+    localStorage.setItem('description', description)
+  }
+
   return (
     <div className="centered">
       <TableContainer component={Paper}>
@@ -62,7 +70,7 @@ export default function Productos() {
                 </TableCell>
                 <TableCell align="center">
                   <Link to="/reserva">
-                    <Button variant="contained">Reserva</Button>
+                    <Button variant="contained" onClick={() => setData(data.id, data.name, data.year, data.price, data.description)}>Reserva</Button>
                   </Link>
                 </TableCell>
               </TableRow>

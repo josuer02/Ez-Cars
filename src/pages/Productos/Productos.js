@@ -20,7 +20,7 @@ export default function Productos() {
       .then((getData) => {
         setIsLoading(true);
         setApiData(getData.data);
-      });
+      });  
   }, []);
 
   const setData = (id, name, year, price, description) => {
@@ -41,7 +41,7 @@ export default function Productos() {
             <TableRow>
               <TableCell>ID</TableCell>
               <TableCell align="right">NAME</TableCell>
-              <TableCell align="right">YEAR</TableCell>
+              <TableCell align="center">YEAR</TableCell>
               <TableCell align="center">COMPRAR</TableCell>
               <TableCell align="center">RESERVAR</TableCell>
             </TableRow>

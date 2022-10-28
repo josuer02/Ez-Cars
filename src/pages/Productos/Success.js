@@ -3,6 +3,7 @@ import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 
 function Succes() {
+  
   return (
     <div>
         <h1  color="green">RESERVA EXITOSA</h1>
@@ -12,8 +13,8 @@ function Succes() {
         </Button>
         </Link>
         <Link to="/reservas">
-        <Button variant="outlined" color="secondary">
-            Volver al Menu Principal
+        <Button variant="outlined" color="secondary"  >
+            Ver Reservas
         </Button>
         </Link>
         

@@ -38,6 +38,11 @@ const MainHeader = () => {
               Vende tu carro
             </NavLink>
           </li>
+          <li>
+            <NavLink activeClassName={classes.active} to='/reservas'>
+              Reservas
+            </NavLink>
+          </li>
         </ul>
       </nav>
     </header>

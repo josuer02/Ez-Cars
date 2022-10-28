@@ -13,6 +13,7 @@ import Reserva from "./pages/Productos/Reserva";
 import Reservas from "./pages/Productos/Reservas";
 import Success from "./pages/Productos/Success";
 import RevisarCitas from "./pages/Citas/RevisarCitas";
+import Confirmar  from "./pages/Productos/Confirmar";
 function App() {
   return (
     <div>
@@ -55,8 +56,11 @@ function App() {
           <Reservas />
         </Route>
         <Route path="/revisarcitas">
-            <RevisarCitas />
-            </Route>
+          <RevisarCitas />
+        </Route>
+        <Route path="/confirmar">
+          <Confirmar />
+        </Route>
       </main>
     </div>
   );

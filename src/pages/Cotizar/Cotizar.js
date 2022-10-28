@@ -4,6 +4,13 @@ import { useState } from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
 const Cotizar = () => {
   const [apiData, setApi] = useState([]);
   const [name, setName] = useState("");
@@ -58,6 +65,7 @@ const Cotizar = () => {
           <TextField
             id="outlined-year"
             label="Telefono"
+            type="number"
             onChange={(e) => setTel(e.target.value)}
           />
           <TextField
@@ -71,8 +79,32 @@ const Cotizar = () => {
                 Cotizar
               </Button>
           </div>
-          <div>{apiData.price}</div>
-          <div>{apiData.description}</div>
+          <p></p>
+          <p></p>
+          <TableContainer component={Paper}>
+        <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+          <TableHead>
+            <TableRow>
+              <TableCell align="center">Nombre del Carro</TableCell>
+              <TableCell align="center">Precio</TableCell>
+              <TableCell align="center">Descripcion</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            <TableRow
+              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+            >
+              <TableCell align="center">{apiData.name}</TableCell>
+              <TableCell align="center">{apiData.price}</TableCell>
+              <TableCell align="center">{apiData.description}</TableCell>
+
+              <TableCell align="center">
+                
+              </TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+      </TableContainer>
         </div>
       </Box>
     </h1>

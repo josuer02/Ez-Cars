@@ -2,6 +2,13 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import axios from "axios";
 import Button from "@mui/material/Button";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 function RevisarTestDrives() {
@@ -43,13 +50,35 @@ function RevisarTestDrives() {
       <TextField fullWidth label="ID TestDrive" id="fullWidth" value={id} onChange={(e) => setId(e.target.value)} />
       <div>
       <Button variant="contained" size = 'large' onClick={handleClick}>Revisar TestDrive</Button>
-      <Link to='/home'>
+      <Link to='/gracias'>
       <Button variant="contained" size = 'large' onClick={handleClick2}>Eliminar TestDrive</Button>
       </Link>
       </div>
-      <div>{apiData.name}</div>
-      <div>{apiData.date}</div>
-      <div>{apiData.car}</div>
+      <p></p>
+      <p></p>
+      <TableContainer component={Paper}>
+        <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+          <TableHead>
+            <TableRow>
+              <TableCell align="center">Nombre del Cliente</TableCell>
+              <TableCell align="center">Carro a probar</TableCell>
+              <TableCell align="center">Fecha</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            <TableRow
+              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+            >
+              <TableCell align="center">{apiData.name}</TableCell>
+              <TableCell align="center">{apiData.car}</TableCell>
+              <TableCell align="center">{apiData.date}</TableCell>
+              <TableCell align="center">
+                
+              </TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+      </TableContainer>
     </Box>
   );
 }

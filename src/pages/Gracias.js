@@ -6,7 +6,7 @@ const Gracias = () => {
 
   return (
     <div>
-        <h1>GRACIAS POR TU COMPRA</h1>
+        <h1>GRACIAS</h1>
         <Link to="/home">
         <Button variant="contained" color="success">
             Volver al Menu Principal

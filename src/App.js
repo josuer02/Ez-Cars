@@ -5,7 +5,6 @@ import MainHeader from "./components/MainHeader";
 import Cotizar from "./pages/Cotizar/Cotizar";
 import Citas from "./pages/Citas/Citas";
 import Productos from "./pages/Productos/Productos";
-import Contactenos from "./pages/Contactenos/Contactenos";
 import Vender from "./pages/Vender/Vender";
 import Comprar from "./pages/Productos/Comprar";
 import Gracias from "./pages/Gracias";
@@ -14,6 +13,8 @@ import Reservas from "./pages/Productos/Reservas";
 import Success from "./pages/Productos/Success";
 import RevisarCitas from "./pages/Citas/RevisarCitas";
 import Confirmar  from "./pages/Productos/Confirmar";
+import RevisarTestDrives from "./pages/TestDrives/RevisarTestDrives";
+import TestDrive from "./pages/TestDrives/TestDrive";
 function App() {
   return (
     <div>
@@ -28,8 +29,8 @@ function App() {
         <Route path="/productos">
           <Productos />
         </Route>
-        <Route path="/contactenos">
-          <Contactenos />
+        <Route path="/testdrive">
+          <TestDrive />
         </Route>
         <Route path="/cotizar">
           <Cotizar />
@@ -60,6 +61,9 @@ function App() {
         </Route>
         <Route path="/confirmar">
           <Confirmar />
+        </Route>
+        <Route path="/revisartestdrives">
+          <RevisarTestDrives />
         </Route>
       </main>
     </div>

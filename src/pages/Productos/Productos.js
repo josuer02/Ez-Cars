@@ -42,8 +42,6 @@ export default function Productos() {
               <TableCell>ID</TableCell>
               <TableCell align="right">NAME</TableCell>
               <TableCell align="right">YEAR</TableCell>
-              <TableCell align="right">PRICE</TableCell>
-              <TableCell align="center">DESCRIPTION</TableCell>
               <TableCell align="center">COMPRAR</TableCell>
               <TableCell align="center">RESERVAR</TableCell>
             </TableRow>
@@ -58,10 +56,8 @@ export default function Productos() {
                   {data.id}
                 </TableCell>
                 {isLoading && <TableCell align="right">{data.name}</TableCell>}
-                {isLoading && <TableCell align="right">{data.year}</TableCell>}
-                {isLoading && <TableCell align="right">{data.price}</TableCell>}
                 {isLoading && (
-                  <TableCell align="center">{data.description}</TableCell>
+                  <TableCell align="center">{data.year}</TableCell>
                 )}
                 <TableCell align="center">
                   <Link to="/compras">

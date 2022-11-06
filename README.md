@@ -2,6 +2,13 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+To be able to run these APIs you will have to run:
+### `npm install axios`
+
+### `npm install @mui/material @mui/styled-engine-sc styled-components`
+
+### `npm install react-router-dom`
+
 ## Available Scripts
 
 In the project directory, you can run:

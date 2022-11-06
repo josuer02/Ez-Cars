@@ -75,3 +75,72 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+## Ez-Cars Website
+Dentro del Website estan:
+
+### Home
+Delete:
+- Eliminar información del cliente en base al ID.
+
+
+### Productos
+Post: 
+- Almacena datos del vehiculo y cliente.
+
+Get: 
+- Mostrar el inventario disponible de carros para comprar.
+- Mostrar inventario disponible para reservar. 
+
+Delete: 
+- Al comprar el vehiculo lo elimina del inventario.
+- Al reservar lo elimina temporalmente del inventario.
+
+
+### Cotizar
+Post: 
+- Almacenar datos del cliente.
+
+Get: 
+- Mostar cotizacion en base al ID del carro.
+
+
+### Test Drive
+Post:
+- Almacenar datos de la cita de test drive.
+
+Get:
+- Revisar los test drives por ID.
+
+Delete: 
+- Eliminar cita de Test Drive.
+
+
+### Citas
+Post:
+- Almacenar datos de la cita.
+
+Get:
+- Revisar los citas por ID.
+
+Delete: 
+- Eliminar cita.
+  
+  
+### Vende tu carro
+Post:
+- Agregar vehículo al inventario.
+ 
+ 
+### Reservas
+Post: 
+- Regresa el vehiculo al inventario.
+
+Get: 
+- Mostrar reservas en base al ID del vehículo. 
+
+Delete:
+- Eliminar reserva de vehículo. 
+
+

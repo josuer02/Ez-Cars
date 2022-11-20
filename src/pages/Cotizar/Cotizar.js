@@ -60,22 +60,28 @@ const Cotizar = () => {
           <TextField
             id="outlined-name"
             label="Nombre"
+            required
+            data-testid="inputN"
             onChange={(e) => setName(e.target.value)}
           />
           <TextField
             id="outlined-year"
             label="Telefono"
+            required
             type="number"
+            data-testid="inputT"
             onChange={(e) => setTel(e.target.value)}
           />
           <TextField
             id="outlined-price"
             label="ID carro"
+            data-testid="inputID"
+            required
             onChange={(e) => setId(e.target.value)}
           />
 
           <div>
-              <Button variant="contained" onClick={handleClick} size="large">
+              <Button variant="contained" onClick={handleClick} data-testid="btnCotizar" size="large">
                 Cotizar
               </Button>
           </div>
@@ -94,9 +100,9 @@ const Cotizar = () => {
             <TableRow
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
-              <TableCell align="center">{apiData.name}</TableCell>
-              <TableCell align="center">{apiData.price}</TableCell>
-              <TableCell align="center">{apiData.description}</TableCell>
+              <TableCell align="center" data-testid="info1Cotizar">{apiData.name}</TableCell>
+              <TableCell align="center" data-testid="info2Cotizar">{apiData.price}</TableCell>
+              <TableCell align="center" data-testid="info3Cotizar">{apiData.description}</TableCell>
 
               <TableCell align="center">
                 

@@ -73,6 +73,7 @@ export default function Comprar() {
                   <Link to="/gracias">
                     <Button
                       variant="contained"
+                      data-testid="btnComR"
                       onClick={() => {
                         onDelete(data.id);
                       }}

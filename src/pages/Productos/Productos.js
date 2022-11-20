@@ -20,22 +20,22 @@ export default function Productos() {
       .then((getData) => {
         setIsLoading(true);
         setApiData(getData.data);
-      });  
+      });
   }, []);
 
   const setData = (id, name, year, price, description) => {
-    localStorage.setItem('ID', id)
-    localStorage.setItem('name', name)
-    localStorage.setItem('year', year)
-    localStorage.setItem('price', price)
-    localStorage.setItem('description', description)
-  }
+    localStorage.setItem("ID", id);
+    localStorage.setItem("name", name);
+    localStorage.setItem("year", year);
+    localStorage.setItem("price", price);
+    localStorage.setItem("description", description);
+  };
 
   return (
     <div className="centered">
       <TableContainer component={Paper}>
         {!isLoading && <Loader />}
-
+        <h1 className="centered">Inventario</h1>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
@@ -56,17 +56,29 @@ export default function Productos() {
                   {data.id}
                 </TableCell>
                 {isLoading && <TableCell align="right">{data.name}</TableCell>}
-                {isLoading && (
-                  <TableCell align="center">{data.year}</TableCell>
-                )}
+                {isLoading && <TableCell align="center">{data.year}</TableCell>}
                 <TableCell align="center">
                   <Link to="/compras">
-                    <Button variant="contained">Comprar</Button>
+                    <Button variant="contained" data-testid='btnComF'>Comprar</Button>
                   </Link>
                 </TableCell>
                 <TableCell align="center">
                   <Link to="/reserva">
-                    <Button variant="contained" onClick={() => setData(data.id, data.name, data.year, data.price, data.description)}>Reserva</Button>
+                    <Button
+                      variant="contained"
+                      data-testid='btnReserva'
+                      onClick={() =>
+                        setData(
+                          data.id,
+                          data.name,
+                          data.year,
+                          data.price,
+                          data.description
+                        )
+                      }
+                    >
+                      Reserva
+                    </Button>
                   </Link>
                 </TableCell>
               </TableRow>

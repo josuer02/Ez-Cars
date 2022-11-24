@@ -39,21 +39,24 @@ function TestDrive() {
             id="outlined-name"
             label="Nombre"
             onChange={(e) => setName(e.target.value)}
+            data-testid="inputNameTd"
           />
           <TextField
             id="outlined-year"
             label="Carro a probar"
             onChange={(e) => setCar(e.target.value)}
+            data-testid="inputCarTd"
           />
           <TextField
             id="outlined-price"
             type="date"
             onChange={(e) => setDate(e.target.value)}
+            data-testid="inputFechaTd"
           />
 
           <div>
             <Link to="/productos">
-              <Button variant="contained" onClick={sendDataToAPI} size="large">
+              <Button variant="contained" onClick={sendDataToAPI} size="large" data-testid="btnSubmitTD">
                 Submit
               </Button>
             </Link>

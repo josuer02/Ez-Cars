@@ -16,5 +16,12 @@ describe("Reservas Page", () => {
     cy.get('[data-testid="inputTel"]').type("24345678");
     //cy.get('[data-testid="btnSbm"]').click();
     //cy.url().should("include", "localhost:3000/success);
+  });
+  it("Ver una reserva ", () => {
+    cy.visit("localhost:3000/reservas");
+    cy.get('[data-testid="inputReservas"]').type("4");
+    cy.get('[data-testid="verReservas"]').click();
+    cy.get('[data-testid="inputReservas"]').clear();
+  });
+  
 });
-})

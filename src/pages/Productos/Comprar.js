@@ -63,11 +63,11 @@ export default function Comprar() {
                 <TableCell component="th" scope="row">
                   {data.id}
                 </TableCell>
-                {isLoading && <TableCell align="right">{data.name}</TableCell>}
-                {isLoading && <TableCell align="right">{data.year}</TableCell>}
-                {isLoading && <TableCell align="right">{data.price}</TableCell>}
+                {isLoading && <TableCell align="right" data-testid="dataName">{data.name}</TableCell>}
+                {isLoading && <TableCell align="right" data-testid="dataYear">{data.year}</TableCell>}
+                {isLoading && <TableCell align="right" data-testid="dataPrice">{data.price}</TableCell>}
                 {isLoading && (
-                  <TableCell align="center">{data.description}</TableCell>
+                  <TableCell align="center" data-testid="dataDes">{data.description}</TableCell>
                 )}
                 <TableCell align="center">
                   <Link to="/gracias">

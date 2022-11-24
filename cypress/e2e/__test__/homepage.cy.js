@@ -1,8 +1,7 @@
 describe("Homepage test", () => {
   it("Ver que el input este vacio", () => {
     cy.visit("localhost:3000/");
-    cy.clearLocalStorage();
-    cy.get('[data-testid="inputHome"]').should("have.length", 0);
+    cy.get('[data-testid="inputHome"]').should("have.length", 1);
   });
   it("Ingresar un ID y presionar el boton", () => {
     cy.get('[data-testid="inputHome"]').type("4");
@@ -12,7 +11,7 @@ describe("Homepage test", () => {
     cy.get('[data-testid="inputHome"]').clear();
   });
   it("Ingresar un ID y presionar el boton de desuscribirse", () => {
-    cy.get('[data-testid="inputHome"]').type("1"); //meterle un id existente para realizar la prueba
+    cy.get('[data-testid="inputHome"]').type("8"); //meterle un id existente para realizar la prueba
     cy.get('[data-testid="btnDelete"]').click();
 
     cy.contains('GRACIAS')

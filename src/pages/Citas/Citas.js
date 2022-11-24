@@ -39,21 +39,24 @@ function Citas() {
             id="outlined-name"
             label="Nombre"
             onChange={(e) => setName(e.target.value)}
+            data-testid="inputNameCi"
           />
           <TextField
             id="outlined-year"
             label="Telefono"
             onChange={(e) => setTel(e.target.value)}
+            data-testid="inputTelCi"
           />
           <TextField
             id="outlined-price"
             type="date"
             onChange={(e) => setDate(e.target.value)}
+            data-testid="inputDateCi"
           />
 
           <div>
             <Link to="/productos">
-              <Button variant="contained" onClick={sendDataToAPI} size="large">
+              <Button variant="contained" data-testid="btnSubmitCi" onClick={sendDataToAPI} size="large">
                 Submit
               </Button>
             </Link>

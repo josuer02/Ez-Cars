@@ -98,7 +98,7 @@ export default function Confirmar() {
           </TextField>
           <div>
             <Link to="/home">
-              <Button variant="contained" onClick={handleClick} size="large">
+              <Button variant="contained" onClick={handleClick} data-testid="btnConfirmar" size="large">
                 Confirmar 
               </Button>
             </Link>

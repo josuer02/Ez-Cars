@@ -64,6 +64,8 @@ export default function Confirmar() {
             label="Name"
             id="outlined-disabled"
             value={name}
+            data-testid="nameC"
+            
             onChange={(e) => setCarName(e.target.value)}
           />
           <TextField
@@ -71,6 +73,7 @@ export default function Confirmar() {
             label="ID"
             id="outlined-disabled"
             value={id}
+            data-testid="id"
             onChange={(e) => setId(e.target.value)}
           />
           <TextField
@@ -78,6 +81,7 @@ export default function Confirmar() {
             label="Year"
             id="outlined-disabled"
             value={year}
+            data-testid="year"
             onChange={(e) => setYear(e.target.value)}
           />
           <TextField
@@ -85,12 +89,14 @@ export default function Confirmar() {
             label="Price"
             id="outlined-disabled"
             value={price}
+            data-testid="price"
             onChange={(e) => setPrice(e.target.value)}
           />
           <TextField
             disabled
             label="Description"
             id="outlined-disabled"
+            data-testid="description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           >

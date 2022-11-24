@@ -55,8 +55,8 @@ export default function Productos() {
                 <TableCell component="th" scope="row">
                   {data.id}
                 </TableCell>
-                {isLoading && <TableCell align="right">{data.name}</TableCell>}
-                {isLoading && <TableCell align="center">{data.year}</TableCell>}
+                {isLoading && <TableCell align="right" data-testid="nameCar">{data.name}</TableCell>}
+                {isLoading && <TableCell align="center" data-testid="yearCar">{data.year}</TableCell>}
                 <TableCell align="center">
                   <Link to="/compras">
                     <Button variant="contained" data-testid='btnComF'>Comprar</Button>

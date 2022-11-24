@@ -28,7 +28,6 @@ const Cotizar = () => {
         `https://635767892712d01e140742e9.mockapi.io/api/v1/carros/${id}`
       )
       .then((getData) => {
-        console.log(getData);
         setApi(getData.data);
       });
   }, [idButton]);
@@ -40,7 +39,6 @@ const Cotizar = () => {
         telefono
       })
       .then((response) => {
-        console.log(response.data);
 		
           });
   };

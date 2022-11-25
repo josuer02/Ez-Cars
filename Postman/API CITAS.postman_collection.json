@@ -1,0 +1,203 @@
+{
+	"info": {
+		"_postman_id": "fa67c4c3-7421-436b-a85a-d39930dcb2e4",
+		"name": "API CITAS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23507695"
+	},
+	"item": [
+		{
+			"name": "GET CITAS",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Al tener la info status is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"El body tiene el nombre del nombre, telefono, fecha de la cita y el id\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"name\", \"fecha\" , \"telefono\", \"id\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://635767892712d01e140742e9.mockapi.io/api/v1/citas",
+					"protocol": "https",
+					"host": [
+						"635767892712d01e140742e9",
+						"mockapi",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"citas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET CITAS BY ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200 al hacer el GET\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"El body tiene el nombre del nombre, telefono, fecha de la cita y el id\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"name\", \"fecha\" , \"telefono\", \"id\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://635767892712d01e140742e9.mockapi.io/api/v1/citas/1",
+					"protocol": "https",
+					"host": [
+						"635767892712d01e140742e9",
+						"mockapi",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"citas",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET ID INEXISTENTE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 500 por tema de la api\", function () {\r",
+							"    pm.response.to.have.status(500);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://635767892712d01e140742e9.mockapi.io/api/v1/citas/34",
+					"protocol": "https",
+					"host": [
+						"635767892712d01e140742e9",
+						"mockapi",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"citas",
+						"34"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST CITAS",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201 al hacer el POST\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://635767892712d01e140742e9.mockapi.io/api/v1/citas",
+					"protocol": "https",
+					"host": [
+						"635767892712d01e140742e9",
+						"mockapi",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"citas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE CITA BY ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200 al hacer el delete\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://635767892712d01e140742e9.mockapi.io/api/v1/citas/7",
+					"protocol": "https",
+					"host": [
+						"635767892712d01e140742e9",
+						"mockapi",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"citas",
+						"7"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

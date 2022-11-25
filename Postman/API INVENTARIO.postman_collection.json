@@ -1,0 +1,229 @@
+{
+	"info": {
+		"_postman_id": "f5d38508-163a-4427-bf30-ede82b402bc1",
+		"name": "API INVENTARIO",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23507695"
+	},
+	"item": [
+		{
+			"name": "GET INVENTARIO",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"STATUS 200 CUANDO HAY INFO\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"EL BODY TIENE id\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+							"});\r",
+							"pm.test(\"EL BODY TIENE el nombre del carro\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"name\");\r",
+							"});\r",
+							"pm.test(\"EL BODY TIENE el año del carro\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"year\");\r",
+							"});\r",
+							"pm.test(\"EL BODY TIENE la description del carro\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"description\");\r",
+							"});\r",
+							"pm.test(\"EL BODY TIENE el precio\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"price\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://635767892712d01e140742e9.mockapi.io/api/v1/carros",
+					"protocol": "https",
+					"host": [
+						"635767892712d01e140742e9",
+						"mockapi",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"carros"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET COTIZAR BY ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200 get por ID\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"EL BODY TIENE id\", function () {\r",
+							"\r",
+							"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+							"});\r",
+							"pm.test(\"EL BODY TIENE el nombre del carro\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"name\");\r",
+							"});\r",
+							"pm.test(\"EL BODY TIENE el año del carro\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"year\");\r",
+							"});\r",
+							"pm.test(\"EL BODY TIENE la description del carro\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"description\");\r",
+							"});\r",
+							"pm.test(\"EL BODY TIENE el precio\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"price\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://635767892712d01e140742e9.mockapi.io/api/v1/carros/2",
+					"protocol": "https",
+					"host": [
+						"635767892712d01e140742e9",
+						"mockapi",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"carros",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET ID INEXISTENTE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 500 por tema de la api\", function () {\r",
+							"    pm.response.to.have.status(500);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://635767892712d01e140742e9.mockapi.io/api/v1/carros/33",
+					"protocol": "https",
+					"host": [
+						"635767892712d01e140742e9",
+						"mockapi",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"carros",
+						"33"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST A INVENTARIO",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Al hacer el post status is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"pm.test(\"Hace el post en menos de 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://635767892712d01e140742e9.mockapi.io/api/v1/carros",
+					"protocol": "https",
+					"host": [
+						"635767892712d01e140742e9",
+						"mockapi",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"carros"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE INVENTARIO BY ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200 al eliminarlo\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://635767892712d01e140742e9.mockapi.io/api/v1/carros/4",
+					"protocol": "https",
+					"host": [
+						"635767892712d01e140742e9",
+						"mockapi",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"carros",
+						"4"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

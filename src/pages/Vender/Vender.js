@@ -41,25 +41,29 @@ function Vender() {
             id="outlined-name"
             label="Name"
             onChange={(e) => setCarName(e.target.value)}
+            data-testid="inputNameVd"
           />
           <TextField
             id="outlined-year"
             label="Year"
             onChange={(e) => setYear(e.target.value)}
+            data-testid="inputYearVd"
           />
           <TextField
             id="outlined-price"
             label="Price"
             onChange={(e) => setPrice(e.target.value)}
+            data-testid="inputPriceVd"
           />
           <TextField
             id="outlined-description"
             label="Description"
             onChange={(e) => setDescription(e.target.value)}
+            data-testid="inputDesVd"
           />
           <div>
             <Link to="/productos">
-              <Button variant="contained" onClick={sendDataToAPI} size="large">
+              <Button variant="contained"  data-testid="btnSubmitVd" onClick={sendDataToAPI} size="large">
                 Submit
               </Button>
             </Link>

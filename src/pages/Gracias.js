@@ -8,7 +8,7 @@ const Gracias = () => {
     <div>
         <h1>GRACIAS</h1>
         <Link to="/home">
-        <Button variant="contained" color="success">
+        <Button variant="contained" color="success" data-testid='btnGracias'>
             Volver al Menu Principal
         </Button>
         </Link>

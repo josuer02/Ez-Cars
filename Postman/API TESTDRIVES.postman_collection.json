@@ -1,0 +1,197 @@
+{
+	"info": {
+		"_postman_id": "8913fd7f-df2c-4503-b995-d2c1746e84fa",
+		"name": "API TESTDRIVES",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23507695"
+	},
+	"item": [
+		{
+			"name": "GET TESTDRIVES",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Al tener la info el status es 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"El body tiene el nombre del cliente, el carro a probar, la fecha que lo quiere probar y el id\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"name\", \"car\" , \"date\", \"id\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://635b4f29aa7c3f113dba2917.mockapi.io/api/v2/testdrives",
+					"protocol": "https",
+					"host": [
+						"635b4f29aa7c3f113dba2917",
+						"mockapi",
+						"io"
+					],
+					"path": [
+						"api",
+						"v2",
+						"testdrives"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET TESTDRIVE BY ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200 al tener la info\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"El body tiene el nombre del cliente, el carro a probar, la fecha que lo quiere probar y el id\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"name\", \"car\" , \"date\", \"id\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://635b4f29aa7c3f113dba2917.mockapi.io/api/v2/testdrives/2",
+					"protocol": "https",
+					"host": [
+						"635b4f29aa7c3f113dba2917",
+						"mockapi",
+						"io"
+					],
+					"path": [
+						"api",
+						"v2",
+						"testdrives",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET ID INEXISTENTE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 500 por tema de la api\", function () {\r",
+							"    pm.response.to.have.status(500);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://635b4f29aa7c3f113dba2917.mockapi.io/api/v2/testdrives/45",
+					"protocol": "https",
+					"host": [
+						"635b4f29aa7c3f113dba2917",
+						"mockapi",
+						"io"
+					],
+					"path": [
+						"api",
+						"v2",
+						"testdrives",
+						"45"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST TESTDRIVE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201 al hacer el post\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://635b4f29aa7c3f113dba2917.mockapi.io/api/v2/testdrives",
+					"protocol": "https",
+					"host": [
+						"635b4f29aa7c3f113dba2917",
+						"mockapi",
+						"io"
+					],
+					"path": [
+						"api",
+						"v2",
+						"testdrives"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE BY ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200 al eliminarlo\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://635b4f29aa7c3f113dba2917.mockapi.io/api/v2/testdrives/20",
+					"protocol": "https",
+					"host": [
+						"635b4f29aa7c3f113dba2917",
+						"mockapi",
+						"io"
+					],
+					"path": [
+						"api",
+						"v2",
+						"testdrives",
+						"20"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

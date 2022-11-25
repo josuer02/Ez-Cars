@@ -10,12 +10,15 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 function Reservas() {
   const [apiData, setApi] = useState({});
   const [telefono, setTel] = useState();
   const [idButton, setIdButton] = useState(1);
+
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const setData = (id, name, year, price, description) => {
     localStorage.setItem("ID", id);
@@ -24,27 +27,35 @@ function Reservas() {
     localStorage.setItem("price", price);
     localStorage.setItem("description", description);
   };
-  useEffect(() => {
-    axios
-      .get(
+  async function fetchData() {
+    setIsLoading(true);
+    setError(null);
+    try {
+      const { data } = await axios.get(
         `https://635767892712d01e140742e9.mockapi.io/api/v1/reservas/${telefono}`
-      )
-      .then((getData) => {
-        console.log(getData);
-        setApi(getData.data);
-      });
-  }, [idButton]);
+      );
 
+      setApi(data);
+    } catch (error) {}
+    setIsLoading(false);
+  }
+  useEffect(() => {
+    fetchData();
+  }, [idButton]);
 
   const handleClick = () => {
     setIdButton(telefono);
   };
 
   const handleClick2 = () => {
-    setData(apiData.id, apiData.name, apiData.year, apiData.price, apiData.description);
+    setData(
+      apiData.id,
+      apiData.name,
+      apiData.year,
+      apiData.price,
+      apiData.description
+    );
   };
-
- 
 
   return (
     <Box
@@ -58,9 +69,10 @@ function Reservas() {
         id="fullWidth"
         value={telefono}
         onChange={(e) => setTel(e.target.value)}
+        data-testid="inputReservas"
       />
       <div>
-        <Button variant="contained" size="large" onClick={handleClick}>
+        <Button variant="contained" size="large"  data-testid="verReservas" onClick={handleClick}>
           Ver Reserva
         </Button>
       </div>
@@ -90,9 +102,14 @@ function Reservas() {
 
               <TableCell align="center">
                 <Link to="/confirmar">
-                <Button variant="contained" size="large" onClick={handleClick2}>
-                  Eliminar
-                </Button>
+                  <Button
+                    variant="contained"
+                    size="large"
+                    onClick={handleClick2}
+                    data-testid="btnDeleteReservas"
+                  >
+                    Eliminar
+                  </Button>
                 </Link>
               </TableCell>
             </TableRow>

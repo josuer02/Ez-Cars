@@ -66,6 +66,8 @@ export default function Reserva() {
             required
             id="outlined-required"
             label="Ingrese su Nombre"
+            
+            data-testid="inputName"
             onChange={(e) => setClientName(e.target.value)}
           />
           <TextField
@@ -73,6 +75,8 @@ export default function Reserva() {
             id="outlined-required"
             label="Ingrese su telefono"
             type="number"
+            
+            data-testid="inputTel"
             onChange={(e) => setClientTel(e.target.value)}
           />
 
@@ -81,12 +85,14 @@ export default function Reserva() {
             label="Name"
             id="outlined-disabled"
             value={name}
+            data-testid="inputCar"
             onChange={(e) => setCarName(e.target.value)}
           />
           <TextField
             disabled
             label="ID"
             id="outlined-disabled"
+            data-testid="inputID"
             value={id}
             onChange={(e) => setId(e.target.value)}
           />
@@ -94,6 +100,7 @@ export default function Reserva() {
             disabled
             label="Year"
             id="outlined-disabled"
+            data-testid="inputYear"
             value={year}
             onChange={(e) => setYear(e.target.value)}
           />
@@ -101,6 +108,8 @@ export default function Reserva() {
             disabled
             label="Price"
             id="outlined-disabled"
+            data-testid="inputPrice"
+            
             value={price}
             onChange={(e) => setPrice(e.target.value)}
           />
@@ -108,6 +117,7 @@ export default function Reserva() {
             disabled
             label="Description"
             id="outlined-disabled"
+            data-testid="inputDes"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           >
@@ -115,7 +125,7 @@ export default function Reserva() {
           </TextField>
           <div>
             <Link to="/success">
-              <Button variant="contained" onClick={handleClick} size="large">
+              <Button variant="contained" onClick={handleClick} data-testid="btnSbm"size="large">
                 Submit
               </Button>
             </Link>

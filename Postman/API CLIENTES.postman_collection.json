@@ -1,0 +1,200 @@
+{
+	"info": {
+		"_postman_id": "b9576d75-97ea-4e55-8b04-190675ade140",
+		"name": "API CLIENTES",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23507695"
+	},
+	"item": [
+		{
+			"name": "GET CLIENTES",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Al tener info status 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"El body tiene todos los campos\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"name\", \"telefono\" , \"id\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://635767892712d01e140742e9.mockapi.io/api/v1/clientes",
+					"protocol": "https",
+					"host": [
+						"635767892712d01e140742e9",
+						"mockapi",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET CLIENTE BY ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200 al encontrar el id\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"El body tiene todos los campos\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"name\", \"telefono\" , \"id\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://635767892712d01e140742e9.mockapi.io/api/v1/clientes/4",
+					"protocol": "https",
+					"host": [
+						"635767892712d01e140742e9",
+						"mockapi",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"clientes",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET ID INEXISTENTE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 500 por tema de la api\", function () {\r",
+							"    pm.response.to.have.status(500);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://635767892712d01e140742e9.mockapi.io/api/v1/clientes/78",
+					"protocol": "https",
+					"host": [
+						"635767892712d01e140742e9",
+						"mockapi",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"clientes",
+						"78"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST CLIENTE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201 al hacer el post\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://635767892712d01e140742e9.mockapi.io/api/v1/clientes",
+					"protocol": "https",
+					"host": [
+						"635767892712d01e140742e9",
+						"mockapi",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE BY ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200 al hacer el DELETE\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 300ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://635767892712d01e140742e9.mockapi.io/api/v1/clientes/15",
+					"protocol": "https",
+					"host": [
+						"635767892712d01e140742e9",
+						"mockapi",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"clientes",
+						"15"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

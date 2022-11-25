@@ -1,0 +1,200 @@
+{
+	"info": {
+		"_postman_id": "d98ac251-6e5b-4cb2-a3a3-ea9a825bb5b3",
+		"name": "API RESERVAS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23507695"
+	},
+	"item": [
+		{
+			"name": "GET RESERVAS",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Al tener la info el status es 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"El body tiene el nombre del carro, descripcion, año de manufactura, id, precio, datos del cliente (name&tel)\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"name\", \"year\" , \"description\", \"id\", \"price\", \"clientName\" , \"clientTel\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://635767892712d01e140742e9.mockapi.io/api/v1/reservas",
+					"protocol": "https",
+					"host": [
+						"635767892712d01e140742e9",
+						"mockapi",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"reservas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET ID INEXISTENTE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 500 por tema de la API\", function () {\r",
+							"    pm.response.to.have.status(500);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://635767892712d01e140742e9.mockapi.io/api/v1/reservas/50",
+					"protocol": "https",
+					"host": [
+						"635767892712d01e140742e9",
+						"mockapi",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"reservas",
+						"50"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET RESERVA BY ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200 al encontra el ID\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"El body tiene el nombre del carro, descripcion, año de manufactura, id, precio, datos del cliente (name&tel)\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"name\", \"year\" , \"description\", \"id\", \"price\", \"clientName\" , \"clientTel\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://635767892712d01e140742e9.mockapi.io/api/v1/reservas/3",
+					"protocol": "https",
+					"host": [
+						"635767892712d01e140742e9",
+						"mockapi",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"reservas",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST RESERVAS",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201 al crear una reserva\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"pm.test(\"Hace el post en menos de 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://635767892712d01e140742e9.mockapi.io/api/v1/reservas",
+					"protocol": "https",
+					"host": [
+						"635767892712d01e140742e9",
+						"mockapi",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"reservas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE RESERVA BY ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200 al eliminar la reserva\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://635767892712d01e140742e9.mockapi.io/api/v1/reservas/9",
+					"protocol": "https",
+					"host": [
+						"635767892712d01e140742e9",
+						"mockapi",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"reservas",
+						"9"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
